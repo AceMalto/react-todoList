@@ -1,10 +1,37 @@
-import { createTodo } from '../models/todoModel.js'
+import * as todoModel from '../models/todoModel.js'
 
-export const addTodos = async (req, res) => {
-    try{
-        const task = await createTodo(req.body)
-        res.status(201).json({success: true, task})
-    }catch(err){
-        res.status(400).json({success: false, message: err.message })
+export const getTodo = async (req, res) => {
+    try {
+        const todos = await todoModel.getTodo()
+        res.status(200).json(todos)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+export const createTodo = async (req, res) => {
+    try {
+        const data = await todoModel.createTodo(req.body)
+        res.status(201).json(data)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+export const updateTodo = async (req, res) => {
+    try {
+        const data = await todoModel.updateTodo(req.params.id, req.body)
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+export const deleteTodo = async (req, res) => {
+    try {
+        const data = await todoModel.deleteTodo(req.params.id)
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json({ error: error.message })
     }
 }
