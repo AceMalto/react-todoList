@@ -5,6 +5,7 @@ npm init -y
 npm i nodemon express dotenv cors @supabase/supabase-js
 npm i axios
 npm install date-fns (for displaying 1 minute ago)
+npm install node-cron (scheduling time to delete )
 
 # React + Vite
 

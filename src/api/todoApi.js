@@ -15,7 +15,7 @@ export const getTodo = async () =>{
 export const createTodo = async (description) => {
     try {
         const response = await axios.post(`${API_URL}/add`, description )
-        console.log('Todo added:', response.data)
+        // console.log('Todo added:', response.data)
         return response.data
     }catch(error){
         console.error('Error adding todo:', error?.response?.data || error.message)

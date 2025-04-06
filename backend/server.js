@@ -2,7 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import todoRoutes from './routes/todoRoute.js'
 import cors from 'cors'
-
+import './controllers/deleteSchedule.js';  // Import the cron job setup file
 
 const app = express()
 
